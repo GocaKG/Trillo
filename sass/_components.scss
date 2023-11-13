@@ -14,6 +14,12 @@
      align-items: center;
      justify-content: center;
 
+     @media only screen and (max-width:$bp-smallest){
+        order: 1;
+        flex: 0 0 100%;
+        background-color: var(--color-grey-light-2);
+    }
+
     &_input {
         font-family: inherit;
         font-size: inherit;
@@ -130,12 +136,25 @@
     list-style: none;
     margin-top: 3.5rem;
 
+    @media only screen and (max-width:$bp-medium){
+        display: flex;
+        margin: 0;
+    }
+
     &_item {
         position: relative;
 
         &:not(:last-child) {
             margin-bottom: .5rem;
+            @media only screen and (max-width:$bp-medium){
+                margin-bottom: 0;
+    
+            }
         }
+        @media only screen and (max-width:$bp-medium){
+            flex: 1;
+        }
+    
     }
     &_item::before {
         content: "";
@@ -146,7 +165,7 @@
         width: 3px;
         background-color: var(--color-primary);
         transform: scaleY(0);
-        transition: transform .5s,
+        transition: transform .2s,
                     width  .4s cubic-bezier(1,0,0,1) .2s,
                     background-color .1s ;
 
@@ -176,6 +195,15 @@
        display: flex;
        align-items: center;
 
+       @media only screen and (max-width:$bp-medium){
+        justify-content: center;
+        @media only screen and (max-width:$bp-small){
+            flex-direction: column;
+            justify-content: center;
+            padding: 1rem .5rem;
+        }
+    }
+
     }
 
    
@@ -186,6 +214,13 @@
         height: 1.75rem;
         margin-right: 2rem;
         fill: currentColor;
+
+        @media only screen and (max-width:$bp-small){
+            margin-right: 0;
+            margin-bottom: 7px;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
 
     }
 
@@ -198,6 +233,11 @@
     text-align: center;
     padding: 2.5rem;
     color: var(--color-grey-light-3);
+
+    @media only screen and (max-width:$bp-medium){
+        display: none;
+        
+    }
 }
 
 /////////////////////
@@ -229,6 +269,11 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 1.5rem 3rem;
+
+        @media only screen and (max-width:$bp-small){
+            font-size: 1.8rem;
+            padding: 1.25rem 2rem;
+        }
     }
 
     &_stars {
@@ -264,17 +309,29 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        @media only screen and (max-width:$bp-small){
+            padding: 0rem 1.5rem;
+        }
     }
     &_rating-average {
         font-size: 2.25rem;
         font-weight: 300;
         margin-bottom: -3px;
 
+        @media only screen and (max-width:$bp-small){
+            font-size: 1.8rem;
+        }
+
     }
      
     &_rating-count {
         font-size: .8rem;
         text-transform: uppercase;
+
+        @media only screen and (max-width:$bp-small){
+            font-size: .5rem;
+        }
     }
 }
 
@@ -391,6 +448,9 @@
     align-items: center;
     // justify-content: space-between;
 
+    &_friends {
+        display: flex;
+        }
 
     &_photo {
         box-sizing: content-box;
@@ -409,9 +469,7 @@
         margin-right: auto;
     }
 
-    &_friends {
-
-    }
+    
 }
 ///////////////
 /// review
@@ -423,6 +481,10 @@
     margin-bottom: 3.5rem;
     position: relative;
     overflow: hidden;
+    @media only screen and (max-width:$bp-medium){
+        padding: 2rem;
+        margin-bottom: 3rem;
+    }
        
 
     &_text {
@@ -490,6 +552,9 @@
 .cta {
     padding: 3.5rem 0;
     text-align: center;
+    @media only screen and (max-width:$bp-medium){
+        padding: 2.5rem 0;
+    }
 
     &_book-now {
         font-size: 2rem;
